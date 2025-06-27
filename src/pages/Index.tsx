@@ -1,26 +1,59 @@
 
-import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import { VulnerabilityScanner } from "@/components/cybersecurity/VulnerabilityScanner";
 import { AttackSimulator } from "@/components/cybersecurity/AttackSimulator";
 import { IntrusionDetection } from "@/components/cybersecurity/IntrusionDetection";
 import { IncidentResponse } from "@/components/cybersecurity/IncidentResponse";
 import { ReportingDashboard } from "@/components/cybersecurity/ReportingDashboard";
+import { UserMenu } from "@/components/UserMenu";
 import { Shield, AlertTriangle, Activity, FileText, BarChart } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate('/auth');
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+        <div className="text-green-400 text-xl">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-green-400">
       <div className="container mx-auto p-6">
-        <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold mb-2 text-green-400">
-            <Shield className="inline-block mr-3 mb-1" />
-            CyberSec Threat Simulator
-          </h1>
-          <p className="text-slate-400 text-lg">
-            Advanced Cybersecurity Training & Analysis Platform
-          </p>
+        <div className="mb-8 flex justify-between items-center">
+          <div className="text-center flex-1">
+            <h1 className="text-4xl font-bold mb-2 text-green-400">
+              <Shield className="inline-block mr-3 mb-1" />
+              CyberSec Threat Simulator
+            </h1>
+            <p className="text-slate-400 text-lg">
+              Advanced Cybersecurity Training & Analysis Platform
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-slate-400">
+              Welcome, {user.email}
+            </div>
+            <UserMenu />
+          </div>
         </div>
 
         <Tabs defaultValue="scanner" className="w-full">
