@@ -26,7 +26,7 @@ const Index = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="text-green-400 text-xl">Loading...</div>
+        <div className="text-blue-400 text-xl">Loading...</div>
       </div>
     );
   }
@@ -36,11 +36,11 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-green-400">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-blue-400">
       <div className="container mx-auto p-6">
         <div className="mb-8 flex justify-between items-center">
           <div className="text-center flex-1">
-            <h1 className="text-4xl font-bold mb-2 text-green-400">
+            <h1 className="text-4xl font-bold mb-2 text-blue-400">
               <Shield className="inline-block mr-3 mb-1" />
               CyberSec Threat Simulator
             </h1>
@@ -60,7 +60,7 @@ const Index = () => {
           <TabsList className="grid w-full grid-cols-5 bg-slate-800 border border-slate-700">
             <TabsTrigger 
               value="scanner" 
-              className="data-[state=active]:bg-green-600 data-[state=active]:text-white"
+              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
             >
               <Shield className="w-4 h-4 mr-2" />
               Scanner

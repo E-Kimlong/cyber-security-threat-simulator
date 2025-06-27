@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -68,9 +67,9 @@ const Auth = () => {
       <Card className="w-full max-w-md bg-slate-800 border-slate-700">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <Shield className="h-12 w-12 text-green-400" />
+            <Shield className="h-12 w-12 text-blue-400" />
           </div>
-          <CardTitle className="text-2xl text-green-400">CyberSec Platform</CardTitle>
+          <CardTitle className="text-2xl text-blue-400">CyberSec Platform</CardTitle>
           <CardDescription className="text-slate-400">
             Access your cybersecurity training environment
           </CardDescription>
@@ -78,10 +77,10 @@ const Auth = () => {
         <CardContent>
           <Tabs defaultValue="signin" className="w-full">
             <TabsList className="grid w-full grid-cols-2 bg-slate-700">
-              <TabsTrigger value="signin" className="data-[state=active]:bg-green-600">
+              <TabsTrigger value="signin" className="data-[state=active]:bg-blue-600">
                 Sign In
               </TabsTrigger>
-              <TabsTrigger value="signup" className="data-[state=active]:bg-green-600">
+              <TabsTrigger value="signup" className="data-[state=active]:bg-blue-600">
                 Sign Up
               </TabsTrigger>
             </TabsList>
@@ -120,7 +119,7 @@ const Auth = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                   disabled={loading}
                 >
                   {loading ? "Signing In..." : "Sign In"}
@@ -176,7 +175,7 @@ const Auth = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                   disabled={loading}
                 >
                   {loading ? "Creating Account..." : "Create Account"}

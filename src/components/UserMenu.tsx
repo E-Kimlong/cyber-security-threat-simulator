@@ -37,13 +37,13 @@ export const UserMenu = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <User className="h-4 w-4 text-green-400" />
+          <User className="h-4 w-4 text-blue-400" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-slate-800 border-slate-700" align="end" forceMount>
         <DropdownMenuLabel className="font-normal text-slate-300">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none text-green-400">Account</p>
+            <p className="text-sm font-medium leading-none text-blue-400">Account</p>
             <p className="text-xs leading-none text-slate-400">
               {user.email}
             </p>
